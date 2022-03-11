@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mjamando</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </head>
+  <body onload="render()">
+    <!-- Body-content container to help keep the footer in place -->
+    <div class="body-content">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="nav-container">
+          <img src="img/logo-1.png" alt="leckerando logo" class="nav-logo" />
+          <span class="logo-text"><b>Mjamando</b>.at</span>
+        </div>
+        <div class="nav-container">
+          <a class="area" href="#">Meinegasse, 1160 Wien</a>
+        </div>
+        <div class="nav-container">
+          <a class="language-link" href="#">AT</a>
+          <a class="nav-account-link" href="#">[my-account]</a>
+          <a class="nav-toggle-link hidden" href="#"><img class="nav-toggle-icon" src="img/menu.png"></a>
+          <a class="cart-link" onclick="" href="#content-right">
+            <span class="hidden" id="cart-counter"></span>
+            <img class="cart-icon" src="img/cart.png" alt="cart icon"/>
+          </a>
+        </div>
+      </nav>
+      <!-- END Navigation -->
+
+      <!-- page container seperates page-content from aside basket-container -->
+      <div class="main-content">
+        <!-- main content right: sidebar right with shopping basket (content right page) -->
+        <div id="content-right">
+          <aside id="basket">
+            <div class="basket-header">
+              <h3>Warenkorb</h3>
+            </div>
+            <div id="basket-content"></div>
+            <div id="sum"></div>
+            <div id="order-button"></div>
+            <div id="display-delivery"></div>
+            <!-- arrow-up to go to top (menu-navbar) -->
+            <a href="#menu-navbar" class="link-up">
+              <img src="img/arrow-up-double.png" alt="go to top icon"/>
+            </a>
+          </aside>
+        </div>
+
+        <!-- main content left -->
+        <div id="content-left">
+          <!-- hero? header img and menu-bar -->
+          <section class="header">
+            <!-- header-img -->
+            <div class="header-img">
+              <img class="header-bg" src="img/chili.jpg" alt="" />
+              <!-- round restaurant-logo -->
+              <div class="logo">
+                <img
+                  class=""
+                  src="img/chili-pepper.png"
+                  alt="restaurant logo"
+                />
+              </div>
+            </div>
+            <!-- description -->
+            <div class="restaurant-info">
+              <h2>Zum Feuertopf</h2>
+              <!-- rating-section (mockup img with star rating), info and favourite icons-->
+              <div class="restaurant-icons"></div>
+              <!-- restaurant-text -->
+              <p>
+                Bei diesem Restaurant kannst du Stempel sammeln. Stelle beim
+                Bestellabschluss bitte sicher, dass du dich für unseren
+                Newsletter angemeldet hast, um deine Stempel per E-Mail zu
+                erhalten.
+              </p>
+            </div>
+          </section>
+          <!-- menu navbar with searchbar and menu-categories -->
+          <div id="menu-navbar"></div>
+          <!-- section menu -->
+          <section id="menu-section">
+            <div id="menu-categories"></div>
+          </section>
+          <!-- END section menu -->
+
+          <!-- up-button go-to-top (wie benennen?) -->
+          <div class="goto-categories"></div>
+          <!-- Menu -->
+        </div>
+        <!-- END content-left -->
+      </div>
+      <!-- END main-content -->
+
+      <!-- shopping-cart button for mobile view (Todo, not finished yet) -->
+      <div class="basket-button"></div>
+      <!-- cart-modal -->
+    </div>
+    <!-- END: body-content -->
+    <!-- Footer? -->
+    <footer id="info">
+      <div class="footer-row">
+        <!-- <a href="#">Jobs</a> -->
+        <a href="#">AGB</a>
+        <a href="#">Datenschutzerklärung</a>
+        <a href="imprint.html">Impressum</a>
+        <a href="#">Verwendung von Cookies</a>
+        <a href="#">Ethik-Hotline</a>
+      </div>
+      <div class="footer-row"><span>&copy; i.f. 2022</span></div>
+    </footer>
+  </body>
+</html>

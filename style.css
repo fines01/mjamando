@@ -1,0 +1,425 @@
+:root{
+    --border-grey : 1px solid #e7e6e6;
+    /* TO-DO: */
+    /* CSS AUFRàUMEN und globale vars definieren (Konsistenz, weniger WH etc.!) */
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    position: relative;
+    color: #333333;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: #800080;
+    box-shadow: 0px 2px 13px -5px rgb(109, 109, 236);
+    /* https://cssgenerator.org/box-shadow-css-generator.html*/
+    padding: 16px;
+    font-size: 1.2rem;
+}
+
+#cart-counter {
+    background-color: rgba(255, 69, 0, 0.7);
+    border-radius: 100%;
+    padding: 2px 6px;
+    position: relative;
+    left: 8px;
+    top: 0px;
+    font-size: 0.8rem;
+}
+
+.area{
+    border-bottom: 2px solid white;
+}
+
+.nav-container{
+    display:flex;
+    align-items: center;
+}
+
+.nav-logo{
+    height: 32px;
+    padding: 8px;
+}
+
+nav a, #menu-navbar a {
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 16px;
+    margin-right: 16px;
+    color: inherit;
+    transition: transform 0.33s, color 0.33s;
+}
+
+
+nav a:hover {
+    color: rgb(170, 170, 238);
+    font-weight: 900;
+}
+
+.nav-toggle-icon {
+    height: 24px;
+}
+
+.header-img {
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+    position:relative;
+
+}
+/* Header */
+.header-bg{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    /* bild positionieren: */
+}
+
+.restaurant-info {
+    margin: 16px;
+}
+
+.logo{
+    position: absolute;
+    bottom: -52px;
+    /* height: 80px;
+    width: 80px; */
+    padding: 24px;
+
+    /* background-color: #e9e6e6; */
+    background-color: white;
+    border-radius: 100%;
+    box-shadow: 0 1px 2px #333333;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 64px;
+}
+
+
+/* Menu Navbar */
+
+.category-headline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-headline img {
+    height: 16px;
+}
+
+#menu-navbar, .category-headline {
+    height: 32px;
+    padding: 16px;
+    border-radius: 2px;
+    background-color: #adadad;
+
+    /* diese attribute? bisher in allen navs & headline-divs?-> */
+    display:flex;
+    align-items:center;
+
+}
+
+#menu-navbar img{
+    height: 24px;
+}
+
+#menu-section {
+    margin: 16px;
+}
+
+.menu-items {
+    border: var(--border-grey);
+    margin: 8px 0;
+    padding: 16px;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.15s;
+}
+
+.menu-items:hover{
+    border: 1px solid #8787ec;
+}
+
+.icon-btn{
+    border: var(--border-grey);
+    border-radius: 3px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.33s;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.add-item {
+    padding: 16px;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 4px 0 4px;
+}
+
+.items-row{
+    margin: 8px 0;
+}
+
+.items-row div {
+    display: flex;
+}
+
+.items-row .icon-btn {
+    height: 24px;
+    width: 24px;
+    margin: 0 4px;
+}
+
+.icon-btn img {
+    height: 16px;
+}
+
+.icon-btn:hover {
+    border-color:#8787ec;
+}
+
+h2,h3{
+    margin:0;
+}
+
+/* s */
+.main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse; /* da sticky right:0 nicht fkt mit flexbox oder div reihenfolge lösen*/
+}
+
+/* basket container left */
+#content-right {
+    min-width:350px;
+    /* height: 100vh; */
+    border-left: var(--border-grey);
+    box-shadow: -2px 0px 4px -1px #e7e6e6;
+}
+
+#content-left {
+    width: 100%;
+}
+
+/* basket (in extra container, da sonst iwie sticky nicht fkt? recherchieren) */
+#basket{
+
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    /* right:0; */
+    z-index:1;
+}
+
+.basket-header {
+    border-bottom: var(--border-grey);
+    padding: 16px;
+    text-align: center;
+}
+
+#basket-content {
+    padding: 16px;
+}
+
+.basket-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: var(--border-grey);
+    padding: 8px 0 16px 0;
+}
+
+.cartitem-name {
+    font-size: 0.9rem;
+}
+
+.items-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding-bottom: 4px; */
+}
+
+#sum {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    padding: 16px;
+}
+
+.sum-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#order-button {
+    margin: 8px;
+    text-align: center;
+}
+
+#order-button button{
+    padding: 16px 32px;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.33s
+}
+
+#order-button button:hover {
+    background-color: #8787ec;
+}
+
+#order-button p {
+    padding: 0 24px;
+}
+
+/* Footer */
+
+/* Footer - Hilfscontainer "body-content" */
+.body-content {
+    padding-bottom: 96px; /* Footer height (noch anpassen)*/
+}
+
+#display-delivery{
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.link-up {
+    display: none;
+    border-radius: 100%;
+    box-shadow: 0 1px 3px 1px #333333;
+    background-color: rgb(51,51,51, 0.1);
+    height:40px;
+    width:40px;
+    margin: 24px;
+
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 24px; /* FRAGE positionierung sticky-elemente (hier: zB nach rechts, abstand unten zum div-ende)*/
+    left: 100vw;
+}
+
+.link-up img {
+    height: 24px;
+}
+
+/* FOOTER */
+
+footer {
+    height: 32px;
+    padding:24px 40px 40px 32px;
+    /* display: flex; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #d3ded3;
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+    margin: 8px;
+}
+
+footer a:hover {
+    color: black;
+}
+
+.footer-row {
+    padding-bottom: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Media Queries */
+
+@media(max-width: 850px){
+
+    .cart-link{
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0px;
+    }
+
+    #content-right {
+        /* display: none; */
+        box-shadow: 1px 0 4px #333333;
+        /* border-top: 3px solid #333333; */
+        margin-top: 32px; 
+    }
+
+    .logo {
+        padding: 16px;
+        bottom: -25px;
+    }
+
+    .logo img {
+        height: 34px;
+    }
+
+    .body-content {
+        padding-bottom: 128px;
+    }
+
+    .main-content {
+        flex-direction: column-reverse;
+    }
+
+    .link-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav, #menu-navbar, .menu-items h3 {
+        font-size: 1rem;
+    }
+
+    #menu-navbar {
+        overflow-x: scroll; /* or auto*/
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+}
+
+@media(max-width: 650px){
+    .logo-text, .area, .language-link, .nav-account-link {
+        display: none;
+    }
+
+    .nav-toggle-link {
+        display: block;
+    }
+}
+
+/* section links von basket: */
+/*     max-width: calc(100% - 344px); */
+/* print-view (Speisekarte?) */
