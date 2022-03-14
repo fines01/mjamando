@@ -20,7 +20,7 @@ function menuSectionTemplate(section, i) {
     section.innerHTML += /*html*/ `
               <div class="category-headline">
                 <h3 class="category-name" id="${categories[i]}">${categories[i]}</h3>
-                <a href="#menu-navbar"><img class="icon" src="img/arrow-up-single.png" alt="arrow up icon"></a>
+                <a href="#menu-navbar"><img class="icon up-link" src="img/arrow-up-single.png" alt="arrow up icon"></a>
               </div>
               <!-- menu items -->
         `;
@@ -133,7 +133,7 @@ function renderCartIcon() {
     }
 }
 
-// render menu-navbar with all categories
+// render menu-navbar with all categories // TODO --> ISSUE with first headline (styling: not in beginning of hl (.category-headline, #menu-navbar )...??)
 function renderMenuNavbar() {
     let navbar = document.getElementById('menu-navbar');
     navbar.innerHTML = '';
@@ -151,10 +151,8 @@ function renderMenuItems() {
     for (i = 0; i < categories.length; i++) {
         // A.: render category headlines
         menuSectionTemplate(section, i);
-        // first element without up-link (1.: in Fkt, 2.: NOT working)
-        if (i == 0) {
-            document.getElementById(categories[i]).innerHTML = `<h3 class="category-name" id="${categories[i]}">${categories[i]}</h3>`
-        }
+        // render first element without up-link
+        document.getElementsByClassName('up-link')[0].classList.add('hidden');
         // B.: render menu - items belonging to the respective categories
         for (x = 0; x < dishes.length; x++) {
             if (dishes[x].category == i) {
