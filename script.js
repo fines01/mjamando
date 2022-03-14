@@ -111,55 +111,55 @@ function orderBtnTemplate(element, total) {
     <button>Bezahlen: ${displayPrice(total)}</button>`;
 }
 
-
-// render content
-function render() {
-
-    let navbar = document.getElementById('menu-navbar');
-    let section = document.getElementById('menu-categories');
-    let cartItems = document.getElementById('basket-content');
-    let cartSum = document.getElementById('sum');
-    let displayDelivery = document.getElementById('display-delivery');
-    let orderBtn = document.getElementById('order-button');
-    let cartCounter = document.getElementById('cart-counter');
-    let itemCounter = document.getElementById('show-amount');
-
-    navbar.innerHTML = '';
-    section.innerHTML = '';
-    cartItems.innerHTML = '';
-    cartSum.innerHTML = '';
-    displayDelivery.innerHTML = '';
-    orderBtn.innerHTML = /*html*/ `
-        <img src="img/pizza.png" alt="">
+function emptyCartTemplate( element) {
+    element.innerHTML = /*html*/ `
+        <img src="img/pizza.png" alt="pizza image">
         <h4>Gerichte auswählen</h4>
         <p>Wähle Gerichte aus und füge sie deinem Warenkorb hinzu. <br> Wir liefern sie in Kürze!</p>`;
+}
 
-// update cart-counter (TODO: in Function!!?)
+// RENDER content
+
+function init() {
+    renderMenuNavbar();
+    renderMenuItems();
+    renderCart();
+};
+
+// update cart-counter for the cart-icon in head navbar
+function renderCartIcon() {
+    let cartCounter = document.getElementById('cart-counter');
     cartCounter.innerHTML = countCartItems();
     if (countCartItems() > 0) {
         cartCounter.classList.remove('hidden');
-    }
-    else {
+    } else {
         cartCounter.classList.add('hidden');
     }
+}
 
-    // render search-bar in menu-navbar (not finished yet)
-    menuSearchTemplate(navbar);
+// render menu-navbar with all categories
+function renderMenuNavbar() {
+    let navbar = document.getElementById('menu-navbar');
+    navbar.innerHTML = '';
 
-    // render menu - navbar with all categories
     for (i = 0; i < categories.length; i++) {
         menuNavTemplate(navbar, i);
     }
+}
 
-    // render menu - items ordered by categories
+// render menu-items ordered by categories 
+function renderMenuItems() {
+    let section = document.getElementById('menu-categories');
+    section.innerHTML = '';
+
     for (i = 0; i < categories.length; i++) {
         // A.: render category headlines
         menuSectionTemplate(section, i);
         // first element without up-link (1.: in Fkt, 2.: NOT working)
-        if (i == 0){
+        if (i == 0) {
             document.getElementById(categories[i]).innerHTML = `<h3 class="category-name" id="${categories[i]}">${categories[i]}</h3>`
         }
-        // B.: render manu - items belonging to the respective categories
+        // B.: render menu - items belonging to the respective categories
         for (x = 0; x < dishes.length; x++) {
             if (dishes[x].category == i) {
                 menuItemsTemplate(section, x);
@@ -168,32 +168,48 @@ function render() {
             }
         }
     }
+}
 
-    // render cart - items
+function renderCartItems() {
+    let cartItems = document.getElementById('basket-content');
+    cartItems.innerHTML = '';
     for (i = 0; i < cart.length; i++) {
         cartItemsTemplate(cartItems, i);
     }
+}
 
-    // calculate price (TODO: in function!!!)
-    let price = calculatePrice(cart);
-    let delivery = calculateDelivery(price);
-    let total = price + delivery;
-    let difference = minOrderPrice - price;
+// render cart section displaying the price overwiew, order button and delivery price (ev vb?)
+function renderTotalCostBreakdown(orderBtn) {
+     let cartSum = document.getElementById('sum');
+     let displayDelivery = document.getElementById('display-delivery');
+     cartSum.innerHTML = '';
+     displayDelivery.innerHTML = '';
 
-    if (cart.length > 0){
-        // render cart section displaying the price overwiew, order button and delivery price
+     let price = calculatePrice(cart);
+     let delivery = calculateDelivery(price);
+     let total = price + delivery;
+     let difference = minOrderPrice - price;
+
+    if (cart.length > 0) {
         cartSumTemplate(cartSum, price, delivery, total);
         orderBtnTemplate(orderBtn, total);
         displayDeliveryTemplate(displayDelivery, difference);
     }
-};
+}
 
-// 
+function renderCart() {
+    let orderBtn = document.getElementById('order-button');
+    emptyCartTemplate(orderBtn);
+    renderCartIcon();
+    renderCartItems();
+    renderTotalCostBreakdown(orderBtn);
+}
+
 function addToCart(dish) {
     // check if item already exists in cart
     let itemExists = false;
     for (i = 0; i < cart.length; i++) {
-        // item already exists
+        // item already exists in cart
         if (dish.name == cart[i].name) {
             // increase amount of item
             cart[i].amount++;
@@ -205,17 +221,16 @@ function addToCart(dish) {
         // push to cart
         cart.push(dish);
     }
-    render();
+    renderCart();
 }
 
-// yeah.. well that's what it does
 function removeFromCart(i) {
     if (cart[i].amount > 1) {
         cart[i].amount--;
     } else {
         cart.splice(i, 1);
     }
-    render();
+    renderCart();
 }
 
 // calculate delivery costs
@@ -245,19 +260,7 @@ function countCartItems() {
     return counter;
 }
 
-// function displayItemsAmount(element, name){
-//     for(let i=0; i<cart.length; i++){
-//         if (cart[i].name == name){
-//             //console.log(`added:  ${name} amount: ${cart[i].amount}`); //check(+)
-//             element.innerHTML = '';
-//             element.innerHTML += `<span>${cart[i].amount}</span>`;
-
-//             return cart[i].amount;
-//         }
-//     }
-// }
-
-// display price
+// display price (consistency)
 function displayPrice(num) {
     return `${num.toFixed(2)} €`; // toFixed(2) Zahl als String mit 2 Nachkommastellen
 }
@@ -267,7 +270,7 @@ function toggleElement(element){
     element.classList.toggle('hidden');
 }
 
-// For testing purposes/ stuff not finished yet
+// For testing purposes/ stuff not yet finished
 function preventAction(event){
     event.preventDefault();
 }

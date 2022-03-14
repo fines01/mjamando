@@ -1,11 +1,8 @@
 # files
-notes.txt
-lieferando.txt
-mjamando.txt
+todo.txt
 
 #
-vorlagen/
-
+notes/
 
 ### gitignore template from: https://github.com/github/gitignore/blob/main/Node.gitignore (09.03.22)
 # Logs

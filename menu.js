@@ -1,6 +1,6 @@
 let categories = ['Suppen', 'Salate', 'Hauptspeisen', 'Desserts'];
 
-let dishes = [ // Tryout: Array with JSON Objects
+let dishes = [ 
     {
         'name': 'Würzige Kichererbsenpfanne',
         'description': 'Scharfe Kichererbsenpfanne mit Zucchini und Melanzani. (Vegetarisch)',
@@ -71,3 +71,14 @@ let dishes = [ // Tryout: Array with JSON Objects
         'category': 1
     },
 ];
+
+// besser:
+// let menu = [
+//     {
+//         'category': 'soups',
+//         'dishes': [
+//             { },
+//             { },
+//         ],
+//     }.
+// ]
