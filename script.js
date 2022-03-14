@@ -1,8 +1,7 @@
 let minOrderPrice = 20;
 let cart = [];
 
-
-// HTML templates
+// *** HTML templates ***
 
 function menuNavTemplate(navbar, i) {
     navbar.innerHTML += /*html*/ `
@@ -27,7 +26,6 @@ function menuSectionTemplate(section, i) {
         `;
 }
 
-// Menu items generieren
 function menuItemsTemplate(section, i) {
     section.innerHTML += /*html*/ `
     <div class="menu-items">
@@ -43,7 +41,6 @@ function menuItemsTemplate(section, i) {
 }
 
 function cartItemsTemplate(element, i) {
-    // cart section: items (in fkt tmeplate(amount,name,price) mit vals aus fkt updateCart(cart))
     element.innerHTML += /*html*/ `
         <!-- <div class="basket-content"> -->
             <div class="basket-items">
@@ -87,7 +84,6 @@ function cartSumTemplate(element, price, delivery, total) {
 }
 
 function displayDeliveryTemplate(element, diff){
-
     if (diff > 0 ) {
         element.innerHTML = /*html*/`
             <div>
@@ -118,7 +114,7 @@ function emptyCartTemplate( element) {
         <p>Wähle Gerichte aus und füge sie deinem Warenkorb hinzu. <br> Wir liefern sie in Kürze!</p>`;
 }
 
-// RENDER content
+// *** RENDER content ***
 
 function init() {
     renderMenuNavbar();
@@ -204,6 +200,8 @@ function renderCart() {
     renderCartItems();
     renderTotalCostBreakdown(orderBtn);
 }
+
+// *** FUNCTIONALITY...o.so
 
 function addToCart(dish) {
     // check if item already exists in cart
