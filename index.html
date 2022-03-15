@@ -23,10 +23,18 @@
   <body onload="init()">
     <!-- Body-content container to help keep the footer in place -->
     <div class="body-content">
+      <!-- nav icon for responsive menu -->
+      <a class="nav-toggle-link hidden" href="#"><img onclick="toggleMenu()" class="nav-toggle-icon" src="img/menu.png"></a>
+      <nav class="navbar nav-responsive" id="nav-responsive">
+        <a href="#" class=""><b>Mjamando</b>.at</a>
+        <a class="" href="#">Meinegasse, 1160 Wien</a>
+        <a class="" href="#">AT</a>
+        <a class="" href="#">[my-account]</a>
+      </nav>
       <!-- Navigation -->
       <nav class="navbar">
         <div class="nav-container">
-          <img src="img/logo-1.png" alt="leckerando logo" class="nav-logo" />
+          <img src="img/logo-1.png" alt="mjamando logo" class="nav-logo" />
           <span class="logo-text"><b>Mjamando</b>.at</span>
         </div>
         <div class="nav-container">
@@ -35,7 +43,6 @@
         <div class="nav-container">
           <a class="language-link" href="#">AT</a>
           <a class="nav-account-link" href="#">[my-account]</a>
-          <a class="nav-toggle-link hidden" href="#"><img class="nav-toggle-icon" src="img/menu.png"></a>
           <a class="cart-link" onclick="" href="#content-right">
             <span class="hidden" id="cart-counter"></span>
             <img class="cart-icon" src="img/cart.png" alt="cart icon"/>

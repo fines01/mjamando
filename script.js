@@ -261,6 +261,11 @@ function displayPrice(num) {
     return `${num.toFixed(2)} €`; // toFixed(2) Zahl als String mit 2 Nachkommastellen
 }
 
+function toggleMenu() {
+    let nav = document.getElementById('nav-responsive');
+    nav.classList.toggle('show-responsive-nav');
+}
+
 // Toggle HTML element
 function toggleElement(element){
     element.classList.toggle('hidden');
