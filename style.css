@@ -16,7 +16,7 @@ body {
     /* overflow: hidden; */
 }
 
-/* Navbar */
+/* navbar */
 nav {
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,6 @@ nav {
     color: white;
     background-color: #800080;
     box-shadow: 0px 2px 13px -5px rgb(109, 109, 236);
-    /* https://cssgenerator.org/box-shadow-css-generator.html*/
     padding: 16px;
     font-size: 1.2rem;
 }
@@ -140,7 +139,7 @@ nav a:hover {
 }
 
 
-/* Menu Navbar */
+/* menu navbar */
 
 .category-headline {
     display: flex;
@@ -157,7 +156,7 @@ nav a:hover {
     border-radius: 2px;
     background-color: #adadad;
 
-    /* diese attribute? bisher in allen navs & headline-divs?-> */
+    /* diese attribute? bisher in mehreren navs & headline-divs?-> cleanup */
     display:flex;
     align-items:center;
 
@@ -235,7 +234,7 @@ h2,h3{
 .main-content {
     width: 100%;
     display: flex;
-    flex-direction: row-reverse; /* da sticky right:0 nicht fkt mit flexbox oder div reihenfolge lösen*/
+    flex-direction: row-reverse; /* sticky -> right:0 -> gn? */
 }
 
 /* basket container left */
@@ -250,7 +249,7 @@ h2,h3{
     width: 100%;
 }
 
-/* basket (in extra container, da sonst iwie sticky nicht fkt? recherchieren) */
+/* basket (in extra container, da sonst iwie sticky nicht fkt? ) */
 #basket{
 
     position: -webkit-sticky;
@@ -324,7 +323,7 @@ h2,h3{
     padding: 0 24px;
 }
 
-/* Footer */
+/* footer */
 
 /* Footer - Hilfscontainer "body-content" */
 .body-content {
@@ -354,8 +353,6 @@ h2,h3{
 .link-up img {
     height: 24px;
 }
-
-/* FOOTER */
 
 footer {
     height: 32px;
@@ -387,7 +384,7 @@ footer a:hover {
     display: none;
 }
 
-/* Media Queries */
+/* media queries */
 
 @media(max-width: 850px){
 
@@ -465,7 +462,7 @@ footer a:hover {
 
 }
 
-/* Animations */
+/* animations */
 
 @keyframes bounce {
     0% {
