@@ -47,7 +47,7 @@ function cartItemsTemplate(element, i) {
                 <div class="items-row">
                     <strong class="">${cart[i].amount}</strong>
                     <strong class="cartitem-name">${cart[i].name}</strong>
-                    <span>${ displayPrice(cart[i].price)}</span>
+                    <span>${ displayPrice(cart[i].price * cart[i].amount)}</span>
                 </div>
                 <div class="items-row">
                     <a href="" onclick="preventAction(event)">Anmerkung hinzufügen</a>

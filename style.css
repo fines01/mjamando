@@ -257,6 +257,9 @@ h2,h3{
     top:0;
     /* right:0; */
     z-index:1;
+    max-height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;;
 }
 
 .basket-header {
@@ -312,7 +315,8 @@ h2,h3{
     border-radius: 3px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.33s
+    transition: all 0.33s;
+    width: 70%;
 }
 
 #order-button button:hover {
